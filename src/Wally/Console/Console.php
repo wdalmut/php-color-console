@@ -62,11 +62,12 @@ class Console
         $args = func_get_args();
 
         $message = array_shift($args);
-        if (is_array($message)) { 
-            $m = array_shift($message); 
-            $args = $message;
-            $message = $m; 
-        }
+        
+        return $this->_sprintf($message, $args);
+    }
+    
+    private function _sprintf($message, $args) 
+    {
         $message = vsprintf($message, $args);
         
         return $this->_get($message);
@@ -86,7 +87,8 @@ class Console
         if (in_array($method, $colors)) {
             $this->setColor($method);
             
-            return $this->sprintf($args);
+            $message = array_shift($args);
+            return $this->_sprintf($message, $args);
         } else {
             throw new Exception("Color {$method} not available.");
         }
