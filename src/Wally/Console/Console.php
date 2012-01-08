@@ -39,7 +39,7 @@ class Console
         list($this->_prefix, $this->_postfix) = $this->_getColor(self::GREEN);
     }
     
-    private function _getColor($color)
+    protected function _getColor($color)
     {
         return $this->_colors[$color];
     }
@@ -48,7 +48,7 @@ class Console
         list($this->_prefix, $this->_postfix) = self::$_instance->_getColor($color);
     }
     
-    private function _isPosix()
+    protected function _isPosix()
     {
         return (function_exists('posix_isatty'));
     }
@@ -71,7 +71,7 @@ class Console
         return $this->_sprintf($message, $args);
     }
     
-    private function _sprintf($message, $args) 
+    protected function _sprintf($message, $args) 
     {
         $message = vsprintf($message, $args);
         
