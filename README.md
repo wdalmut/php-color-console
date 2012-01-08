@@ -1,4 +1,4 @@
-# Color messages on console
+# Color messages on console [![Build Status](https://secure.travis-ci.org/wdalmut/php-color-console.png)](http://travis-ci.org/wdalmut/php-color-console?branch=master)
 
 *Scripts working only for posix systems.*
 
