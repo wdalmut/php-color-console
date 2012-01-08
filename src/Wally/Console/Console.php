@@ -8,11 +8,13 @@ class Console
     const GREEN = "green";
     const RED = "red";
     const YELLOW = "yellow";
+    const BLUE = "blue";
     
     private $_colors = array(
-        self::GREEN => array("\033[32m", "\033[37m"),
-        self::RED => array("\033[31m", "\033[37m"),
-        self::YELLOW => array("\033[33m", "\033[37m")
+        self::RED       => array("\033[31m", "\033[37m"),
+        self::GREEN     => array("\033[32m", "\033[37m"),
+        self::YELLOW    => array("\033[33m", "\033[37m"),
+        self::BLUE      => array("\033[34m", "\033[37m")
     );
     
     private function __construct() {}
