@@ -18,7 +18,7 @@ class Console
     );
     
     private function __construct() {}
-    private function __clone(){throw new \Exception("not supported");}
+    public function __clone(){throw new \Wally\Console\Exception("not supported");}
     
     private $_prefix;
     private $_postfix;
@@ -28,10 +28,15 @@ class Console
         if (!self::$_instance) {
             self::$_instance = new self();
             
-            list(self::$_instance->_prefix, self::$_instance->_postfix) = self::$_instance->_getColor(self::GREEN);
+            self::$_instance->init();
         }
         
         return self::$_instance;
+    }
+    
+    public function init()
+    {
+        list($this->_prefix, $this->_postfix) = $this->_getColor(self::GREEN);
     }
     
     private function _getColor($color)
