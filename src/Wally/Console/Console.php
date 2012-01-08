@@ -62,8 +62,33 @@ class Console
         $args = func_get_args();
 
         $message = array_shift($args);
+        if (is_array($message)) { 
+            $m = array_shift($message); 
+            $args = $message;
+            $message = $m; 
+        }
         $message = vsprintf($message, $args);
         
         return $this->_get($message);
+    }
+    
+    public function getAvailableColors()
+    {
+        return array_keys($this->_colors);
+    }
+    
+    public function __call($method, $args)
+    {
+        $method = strtolower($method);
+        
+        $colors = $this->getAvailableColors();
+        
+        if (in_array($method, $colors)) {
+            $this->setColor($method);
+            
+            return $this->sprintf($args);
+        } else {
+            throw new Exception("Color {$method} not available.");
+        }
     }
 }
