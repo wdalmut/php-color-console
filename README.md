@@ -12,8 +12,13 @@ use Wally\Console\Console;
 
 $console = Console::getInstance();
 
-echo $console->red("walter %s", "hdaklg") . PHP_EOL;
+//echo walter hello (red color) 
+echo $console->red("walter %s", "hello") . PHP_EOL;
+
+//echo walter hello (blue color)
 echo $console->blue("walter %s", "hello") . PHP_EOL;
+
+//echo walter hello 5 no (green color)
 echo $console->green("walter %s %d %s", "hello", 5, "no") . PHP_EOL;
 ```
 
